@@ -1,0 +1,14 @@
+<div *ngIf="loginForm" [formGroup]=loginForm>
+  <div>
+  <input formControlName="email"
+         placeholder="enter your email">
+  </div>
+<div>
+  <input type="password"
+         formControlName="password"
+         placeholder="enter your password">
+</div>
+  <div>
+  <button (click)="logMeIn()">Login</button>
+  </div>
+</div>

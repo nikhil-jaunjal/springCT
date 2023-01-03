@@ -1,0 +1,25 @@
+<div class="product-container">
+<ng-container *ngFor="let product of products">
+<div class="product-card">
+  <div class="card-action-section">
+  <div>{{product?.id}}</div>
+    <div *ngIf="userType === USER_TYPE.ADMIN">
+      <button (click)="editProduct(product)">edit</button>
+    </div>
+  </div>
+  <div>Category - {{product?.category}}</div>
+    <div>Name - {{product?.name}}</div>
+    <div>Price - {{product?.price}}</div>
+    <div class="card-action-section">
+      <div>Quantity - {{product?.quantity}}</div>
+      <div *ngIf="userType !== USER_TYPE.ADMIN">
+        <button (click)="decreaseQuantity(product)">-</button>
+        <button (click)="increaseQuantity(product)">+</button>
+      </div>
+      <div *ngIf="userType === USER_TYPE.CUSTOMER">
+        <button (click)="checkoutProduct(product)">Checkout</button>
+      </div>
+    </div>
+</div>
+</ng-container>
+</div>
